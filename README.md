@@ -1,21 +1,11 @@
 REDSOCKS2
 =========
+This is Kaizushi's version of redsocks for exitkit. It can resolve DNS and reach a SOCKS proxy via hidden service behind a Tor transproxy. Shadowsocks has been removed from it!
+
 This is a modified version of original redsocks.
 The name is changed to REDSOCKS2 to distinguish with original redsocks.
 REDSOCKS2 contains several new features besides many bug fixes to original
 redsocks.
-
-1. Redirect TCP connections which are blocked via proxy automatically without
-need of blacklist.
-2. Redirect UDP based DNS requests via TCP connection.
-3. Integrated [shadowsocks](http://shadowsocks.org/) proxy support(IPv4 Only).
-4. Redirect TCP connections without proxy.
-5. Redirect TCP connections via specified network interface.
-6. UDP transparent proxy via shadowsocks proxy.
-7. Support Ful-cone NAT Traversal when working with shadowsocks or socks5 proxy.
-8. Integrated HTTPS proxy support(HTTP CONNECT over SSL).
-
-[Chinese Reference](https://github.com/semigodking/redsocks/wiki)
 
 HOW TO BUILD
 ------------
@@ -29,30 +19,6 @@ The following libraries are required.
 On general linux, simply run command below to build with OpenSSL.
 
 ```
-$ make
-```
-
-To compile with PolarSSL
-
-```
-$ make USE_CRYPTO_POLARSSL=true
-```
-
-To compile static binaries (with Tomatoware)
-
-```
-$ make ENABLE_STATIC=true
-```
-
-By default, HTTPS proxy support is disabled. To enable this feature, you need to
-compile like (Require libevent2 compiled with OpenSSL support):
-```
-$ make ENABLE_HTTPS_PROXY=true
-```
-
-To compile on newer systems with OpenSSL 1.1.0 and newer (disables shadowsocks support):
-```
-$ git apply patches/disable-ss.patch
 $ make
 ```
 
